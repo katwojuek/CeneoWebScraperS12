@@ -83,13 +83,28 @@ class Product():
         return self
 
     def __str__(self) -> str:
-        pass
+        return f"""product_id: {self.product_id}<br>
+        product_name: {self.product_name}<br>
+        opinions_count: {self.opinions_count}<br>
+        pros_count: {self.pros_count}<br>
+        cons_count: {self.cons_count}<br>
+        average_score: {self.average_score}<br>
+        opinions: <br><br>
+        """ + "<br><br>".join(str(opinion) for opinion in self.opinions)
 
     def __repr__(self) -> str:
-        pass
+        return f"Product(product_id={self.product_id}, product_name={self.product_name}, opinions_count={self.opinions_count}, pros_count={self.pros_count}, cons_count={self.cons_count}, average_score={self.average_score}, opinions: [" + ", ".join(opinion.__repr__() for opinion in self.opinions) + "])"
 
     def to_dict(self) -> dict:
-        pass
+        return {
+            "product_id": self.product_id,
+            "product_name": self.product_name,
+            "opinions_count": self.opinions_count,
+            "pros_count": self.pros_count,
+            "cons_count": self.cons_count,
+            "average_score": self.average_score,
+            "opinions": [opinion.to_dict() for opinion in self.opinions]
+        }
 
     def export_opinions(self):
         if not os.path.exists("app/opinions"):
@@ -98,5 +113,5 @@ class Product():
             json.dump([opinion.to_dict() for opinion in self.opinions], jf, indent=4, ensure_ascii=False)
         pass
 
-    def export_product(swelf):
+    def export_product(self):
         pass

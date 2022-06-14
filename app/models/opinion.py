@@ -14,7 +14,6 @@ class Opinion():
         self.pros = pros
         self.cons = cons
         self.opinion_id = opinion_id
-        return self
     
     def extract_opinion(self, opinion):
         for key, value in selectors.items():

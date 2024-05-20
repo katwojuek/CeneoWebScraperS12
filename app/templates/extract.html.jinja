@@ -1,4 +1,29 @@
 {% extends "base.html.jinja" %}
 {% block content %}
-    <p>To jest strona ekstrakcji opinii.</p>
+    <h2 class="text-center mt-3 mb-3">Ekstrakcja opinii</h2>
+    <form action="{{url_for('extract')}}" method="POST" class="container">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="product_id" class="col-form-label">Kod produktu</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="product_id" id="product_id" class="form-control" aria-describedby="product_idHelpInline" placeholder="Podaj kod produktu" required>
+            </div>
+            <div class="col-auto">
+                <span id="product_idHelpInline" class="form-text">
+                Kod produktu musi zawierać 5-10 cyfr.
+                </span>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-warning">Pobierz opinie</button>
+            </div>
+
+        </div>
+    </form>
+    {% if error is defined %}
+        <div class="alert alert-warning alert-dismissible fade show mt-3 mb-3" role="alert">
+            <strong>Uwaga!</strong> {{error}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
 {% endblock %}

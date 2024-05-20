@@ -37,6 +37,10 @@ Ekstrakcja opinii</a>
     <section class="container">
         <div class="row">
             <div class="col">
+                <h2 class="text-center mt-3 mb-3">
+                    {% block title %}
+                    {% endblock %}
+                </h2>
                 {% block content %}
                     <p>To jest plik bazowy.</p>
                 {% endblock %}

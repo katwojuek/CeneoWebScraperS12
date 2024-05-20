@@ -1,6 +1,6 @@
 {% extends "base.html.jinja" %}
+{% block title %}Ekstrakcja opinii{% endblock %}
 {% block content %}
-    <h2 class="text-center mt-3 mb-3">Ekstrakcja opinii</h2>
     <form action="{{url_for('extract')}}" method="POST" class="container">
         <div class="row g-3 align-items-center">
             <div class="col-auto">
